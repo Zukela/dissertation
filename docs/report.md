@@ -246,4 +246,3 @@ Future research should focus on several areas to build upon this work:
 In conclusion, while the direct prediction of survival outcomes using only the selected clinical data from the SurGen dataset yielded models with limited to modest performance, this study establishes a foundational analysis pipeline. It highlights both the potential and the challenges of survival prediction in colorectal cancer and underscores the need for more advanced methodologies and comprehensive data integration to improve prognostic accuracy for better patient management.
 
 ---
-End of Report.
