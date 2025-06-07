@@ -46,10 +46,13 @@ The raw data underwent several preprocessing steps to prepare it for analysis, a
 Initial EDA was performed to understand data distributions and relationships. Key visualizations generated include:
 
 *   Distribution of age at diagnosis:
+    This plot shows the frequency distribution of patient ages at the time of diagnosis, providing insight into the age demographic of the study cohort.
     ![Age Distribution](../results/age_distribution.png)
 *   Count of survival status (died within 5 years):
+    This bar chart illustrates the number and proportion of patients who died within 5 years versus those who survived or were censored, highlighting the class balance for the primary outcome.
     ![Survival Status Count](../results/survival_status_countplot.png)
 *   Distribution of days until death for deceased patients:
+    For patients who died, this histogram displays the distribution of the time elapsed from diagnosis until death, indicating patterns in mortality timing.
     ![Days Till Death Distribution](../results/days_till_death_distribution.png)
 
 ### 3.3. Survival Analysis
@@ -57,6 +60,7 @@ Initial EDA was performed to understand data distributions and relationships. Ke
 Kaplan-Meier survival analysis was used to estimate and visualize overall survival probabilities over time. The `lifelines` library was employed for this purpose.
 
 *   Overall Kaplan-Meier survival curve:
+    This curve estimates the overall survival probability of the patient cohort over time, offering a visual representation of survival trends.
     ![Kaplan-Meier Survival Curve](../results/kaplan_meier_overall_survival.png)
 
 ### 3.4. Predictive Modeling
