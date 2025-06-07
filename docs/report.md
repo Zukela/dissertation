@@ -151,6 +151,10 @@ For patients who died (160 patients with `days_till_death_numeric` available for
     *   R-squared (R²): -0.3723
     The negative R-squared value indicates that the Linear Regression model performs worse than a simple model predicting the mean of the target variable. This suggests it is not a good fit for this particular regression task.
 
+*   **Actual vs. Predicted Plot**:
+    ![Linear Regression Actual vs Predicted](../results/lin_reg_actual_vs_predicted.png)
+    This plot visually confirms the poor performance of the Linear Regression model. The points are widely scattered, and there is no clear linear relationship between the predicted and actual values, consistent with the negative R-squared value.
+
 **4.3.2. Random Forest Regressor**
 
 *   **Performance**:
