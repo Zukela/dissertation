@@ -100,10 +100,10 @@ This section presents the key findings from the exploratory data analysis, survi
 
 The initial analysis of the `SR386_labels.csv` dataset, involving 425 patients after initial cleaning of the `died_within_5_years` target variable, revealed the following:
 
-*   **Age Distribution**: The age at diagnosis varied across patients. The specific distribution characteristics (e.g., mean, median, skewness) can be observed in the *Age Distribution* plot (Section 3.2).
-*   **Survival Status**: From the `died_within_5_years` column, after processing, 161 patients (37.9%) were recorded as having died within 5 years, and 264 patients (62.1%) were recorded as alive or censored beyond 5 years. This is visualized in the *Survival Status Count* plot (Section 3.2).
-*   **Time to Event**: For the 160 deceased patients with available `days_till_death_numeric` data used in regression, the time until death showed a particular distribution, detailed in the *Days Till Death Distribution* plot (Section 3.2).
-*   **Overall Survival**: The Kaplan-Meier survival curve (Section 3.3) provides a visual representation of the overall survival probability over time for the cohort. Specific interpretations, such as median survival time, can be estimated from this curve.
+*   **Age Distribution**: The *Age Distribution* plot (referenced in Section 3.2) reveals the demographic profile of the patient cohort in terms of age at diagnosis. Typically, colorectal cancer incidence increases with age. The plot should be examined for central tendency (e.g., mean or median age, which might be around 60-70 years), spread (range and standard deviation), and shape (e.g., whether it's approximately normal, skewed towards older or younger patients, or potentially bimodal). Understanding this distribution is crucial as age is a significant prognostic factor in many cancers, including colorectal cancer.
+*   **Survival Status**: The data indicates that out of 425 patients, 161 (37.9%) died within 5 years, while 264 (62.1%) survived beyond this period or were censored. This is clearly visualized in the *Survival Status Count* plot (Section 3.2). This class distribution (approximately 1:1.6 for died:alive) presents a moderate imbalance, which was addressed in the classification models (e.g., through class weighting in Logistic Regression and as a consideration for hyperparameter tuning in Random Forest) to ensure the minority class (death) is adequately learned.
+*   **Time to Event**: For the 160 deceased patients for whom `days_till_death_numeric` was available and used in regression modeling, the *Days Till Death Distribution* plot (Section 3.2) offers insights into the temporal pattern of mortality. Such distributions are often right-skewed, indicating that a larger proportion of deaths among those who do not survive 5 years occur relatively earlier within the follow-up period. The plot should be inspected for any specific peaks in mortality (e.g., within the first year or two), which can inform understanding of disease aggressiveness and periods of highest risk for this subgroup.
+*   **Overall Survival**: The Kaplan-Meier survival curve (visualized in Section 3.3) provides a non-parametric estimate of the survival function, illustrating the probability of a patient surviving up to a certain point in time. The curve typically starts at a survival probability of 1 (or 100%) and declines over time as patients experience the event (death). Key features to interpret from this plot include the median survival time (the time at which survival probability is 0.5), and survival probabilities at specific time points (e.g., 1-year, 3-year, and 5-year survival rates). The overall 5-year survival rate estimated from this curve should align with the proportion observed in the *Survival Status Count* plot. The steepness of the curve at different intervals indicates periods of higher or lower mortality risk.
 
 ### 4.2. Binary Classification: 5-Year Survival Prediction
 
@@ -255,3 +255,14 @@ Future research should focus on several areas to build upon this work:
 In conclusion, while the direct prediction of survival outcomes using only the selected clinical data from the SurGen dataset yielded models with limited to modest performance, this study establishes a foundational analysis pipeline. It highlights both the potential and the challenges of survival prediction in colorectal cancer and underscores the need for more advanced methodologies and comprehensive data integration to improve prognostic accuracy for better patient management.
 
 ---
+
+## References
+
+1.  Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B., Grisel, O., Blondel, M., Prettenhofer, P., Weiss, R., Dubourg, V., Vanderplas, J., Passos, A., Cournapeau, D., Brucher, M., Perrot, M., & Duchesnay, E. (2011). Scikit-learn: Machine Learning in Python. *Journal of Machine Learning Research*, *12*, 2825-2830.
+2.  McKinney, W. (2010). Data structures for statistical computing in Python. In *Proceedings of the 9th Python in Science Conference* (Vol. 445, pp. 56-61). SciPy.
+3.  Harris, C. R., Millman, K. J., van der Walt, S. J., Gommers, R., Virtanen, P., Cournapeau, D., Wieser, E., Taylor, J., Berg, S., Smith, N. J., Kern, R., Picus, M., Hoyer, S., van Kerkwijk, M. H., Brett, M., Haldane, A., del Río, J. F., Wiebe, M., Peterson, P., ... Oliphant, T. E. (2020). Array programming with NumPy. *Nature*, *585*(7825), 357–362.
+4.  Hunter, J. D. (2007). Matplotlib: A 2D graphics environment. *Computing in Science & Engineering*, *9*(3), 90–95.
+5.  Waskom, M. L. (2021). Seaborn: statistical data visualization. *Journal of Open Source Software*, *6*(60), 3021. https://doi.org/10.21105/joss.03021
+6.  Davidson-Pilon, C. (2019). Lifelines: survival analysis in Python. *Journal of Open Source Software*, *4*(40), 1317. https://doi.org/10.21105/joss.01317
+
+
