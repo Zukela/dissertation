@@ -15,8 +15,8 @@ from lifelines import KaplanMeierFitter
 import os
 
 # --- Configuration ---
-DATA_FILE_PATH = "data/SR386_labels.csv"
-RESULTS_DIR = "results/"
+DATA_FILE_PATH = "../data/SR386_labels.csv"
+RESULTS_DIR = "../results/"
 
 # Ensure results directory exists
 if not os.path.exists(RESULTS_DIR):
@@ -331,6 +331,16 @@ def perform_regression_analysis(df):
     print("Linear Regression Results:")
     print(f"Mean Squared Error: {mean_squared_error(y_test_reg, y_pred_lin_reg):.2f}")
     print(f"R-squared: {r2_score(y_test_reg, y_pred_lin_reg):.4f}")
+
+    # Scatter plot of actual vs. predicted for Linear Regression
+    fig_scatter_lin_reg, ax_scatter_lin_reg = plt.subplots()
+    ax_scatter_lin_reg.scatter(y_test_reg, y_pred_lin_reg, alpha=0.5)
+    ax_scatter_lin_reg.plot([y_test_reg.min(), y_test_reg.max()], [y_test_reg.min(), y_test_reg.max()], 'k--', lw=2) # y = x line
+    ax_scatter_lin_reg.set_xlabel("Actual Days Till Death")
+    ax_scatter_lin_reg.set_ylabel("Predicted Days Till Death")
+    ax_scatter_lin_reg.set_title("Linear Regression: Actual vs. Predicted")
+    save_plot(fig_scatter_lin_reg, "lin_reg_actual_vs_predicted.png")
+    print("Linear Regression Actual vs. Predicted plot saved to ../results/lin_reg_actual_vs_predicted.png")
 
     # --- Random Forest Regressor ---
     print("\nTraining Random Forest Regressor...")
