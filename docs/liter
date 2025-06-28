@@ -1,0 +1,29 @@
+# Literature Review: Integrating Molecular Data and Histology in Computational Pathology
+
+## Introduction
+
+The frontier of computational pathology is increasingly defined by the synergy between histopathology imaging and rich, multi-modal data. To advance personalized medicine, it is critical to develop models that can interpret not just the visual morphology of tissue but also its underlying molecular and clinical context. This involves analyzing tabular data—such as genomic profiles, genetic markers, and patient survival rates—in concert with gigapixel whole-slide images (WSIs). Progress in this domain hinges on two parallel efforts: the creation of sophisticated foundation models trained on multi-modal data and the development of comprehensive, well-annotated datasets to power these models.
+
+## Advancements in Model Architecture: Molecular-Driven Foundation Models
+
+A significant leap forward in model development is exemplified by the introduction of `Threads`, a slide-level foundation model for oncologic pathology. Unlike traditional models that rely solely on image data for pre-training, `Threads` was developed using a unique multimodal learning approach. It was pre-trained on an extensive dataset of 47,171 H&E-stained tissue sections, each paired with its corresponding genomic and transcriptomic profile. 
+
+This molecular-driven pre-training paradigm enables the model to generate universal representations of WSIs that are inherently rich with molecular information. Consequently, `Threads` can infer the underlying molecular composition of tissue from histology alone. In comprehensive benchmarking across 54 different oncology tasks—including mutation prediction, treatment response, and survival analysis—`Threads` demonstrated superior performance and generalizability, showcasing the power of integrating tabular molecular data at the foundational level of model training.
+
+## The Foundational Role of Rich Datasets: The SURGEN Example
+
+The development of advanced models like `Threads` is only possible with the availability of high-quality, multi-modal datasets. The `SurGen` dataset serves as a prime example of such a critical resource. `SurGen` is a publicly available collection of 1,020 H&E-stained WSIs from 843 colorectal cancer cases. 
+
+Crucially, the dataset is not limited to images; it includes detailed annotations for key genetic mutations (KRAS, NRAS, BRAF), mismatch repair (MMR) status, and five-year survival data for hundreds of cases. By providing a direct link between histology, genetic markers, and clinical outcomes, `SurGen` enables researchers to develop and validate models for critical tasks like biomarker discovery and prognostic modeling. The authors demonstrated its utility with a proof-of-concept experiment to predict MMR status from WSIs, underscoring the dataset's value in fostering new research.
+
+## Synthesis and Future Outlook
+
+The `Threads` and `SurGen` papers, when viewed together, map out a clear path forward for computational pathology. `Threads` demonstrates *how* to build powerful models that can predict complex tabular data (like genetic mutations and survival) directly from pathology images. `SurGen` provides an example of the essential *resources* required to train, validate, and spur the development of such models. 
+
+The future of the field lies in this synergy: the continued creation of large, comprehensive, multi-modal datasets that combine imaging with clinical, genomic, and proteomic tabular data, and the parallel development of next-generation foundation models designed to leverage this rich information for more precise and personalized patient care.
+
+## References
+
+1.  **[Author(s) of Threads] (2025).** *Molecular-driven Foundation Model for Oncologic Pathology.* arXiv:2501.16652.
+
+2.  **Myles, C., et al. (2025).** *SurGen: 1020 H&E-stained Whole Slide Images With Survival and Genetic Markers.* arXiv:2502.04946.
