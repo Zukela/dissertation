@@ -1,0 +1,51 @@
+This will give you an idea of what the current state of the art is. These are some of the most innovative and recent works within my current domain.
+ 
+You are not expected to implement something quite so extensive but it will help to give you an idea of what people in my domain are doing. 
+ 
+https://www.youtube.com/@tiawarwick6042
+ 
+Some suggestions for ones to start with:
+ 
+AI Agents in Oncology: Jakob Kather, 12/05/25
+
+Multimodal Whole Slide Foundation Model for Pathology: Tong Ding, 13/01/25
+
+ 
+THREADS: A Molecular-driven Foundation Model for Oncologic Pathology: Anurag Vaidya, 07/04/25
+
+ 
+After watching these you should begin to get an idea of what approaches are used in this domain. 
+ 
+In terms of data, there are many datasets you could explore. You'll need to have a think about what tasks in particular you want to explore. i.e. might you be interested in survival analysis? 
+ 
+I have recently released the SurGen dataset which has data about patient survival that could be explored, for example. I have written all about this dataset here: https://arxiv.org/pdf/2502.04946 If you want to use the SurGen dataset, the paper I wrote will be very valuable. There's some resources for the dataset here https://github.com/CraigMyles/SurGen-Dataset. In particular, the data can be downloaded from here: https://www.ebi.ac.uk/biostudies/bioimages/studies/S-BIAD1285 . All images are czi format and all the patient info is in .csv format.
+ 
+Patient Data can be downloaded if you type csv in the filter on teh ebi website. It'll return these two files:
+https://ftp.ebi.ac.uk/biostudies/fire/S-BIAD/285/S-BIAD1285/Files/SR386_labels.csv
+https://ftp.ebi.ac.uk/biostudies/fire/S-BIAD/285/S-BIAD1285/Files/SR1482_labels.csv
+ 
+The first one happens to have labels on patient survival which would be of interested if this is what you wanted to explore.
+
+You may also find this research paper of interest:
+ 
+Nongenerative Artificial Intelligence in Medicine: Advancements and Applications in Supervised and Unsupervised Machine Learning: https://www.sciencedirect.com/science/article/pii/S0893395224002606
+ 
+OR these types of Literature review/survey articles https://link.springer.com/article/10.1007/s10278-024-01049-2 "From Pixels to Prognosis: A Survey on AI-Driven Cancer Patient Survival Prediction Using Digital Histology Images", although this is now 13 months old so it's possible newer approaches or articles have come out since. 
+ 
+Hi, the paper I referred to in our meeting yesterday is this one: https://arxiv.org/pdf/2501.16652
+There is also a youtube video discussing it here: https://www.youtube.com/watch?v=eChGsiRNx64
+
+The THREADS paper uses the SurGen. You may or may not want to look at the splits they use to see if you want to copy that approach but generally, splitting into 80/20% is good.
+ 
+https://huggingface.co/datasets/MahmoodLab/Patho-Bench/blob/main/sr386_/OS/k%3Dall.tsv
+
+From the THREADS paper:
+![alt text](image-1.png)
+Clinical data for CPTAC-LUAD: https://www.cbioportal.org/study/clinicalData?id=luad_cptac_gdc
+
+ORION Dataset is colorectal and has survival: https://www.cbioportal.org/study/clinicalData?id=crc_orion_2024
+
+They use different models to see how they perform for survival prediction on the SurGen dataset:
+![alt text](image-2.png)
+
+This may be of interest for your literature review: "An Integrated TCGA Pan-Cancer Clinical Data Resource to Drive High-Quality Survival Outcome Analytics" https://www.cell.com/cell/fulltext/S0092-8674(18)30229-0
